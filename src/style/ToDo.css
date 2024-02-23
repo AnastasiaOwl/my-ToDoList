@@ -1,0 +1,27 @@
+.button{
+    background-color: black;
+    font-style: italic;
+    color:white;
+    font-size: calc(5px + 2vmin);
+    color: rgb(255, 255, 255);
+}
+
+.input{
+    padding: 0;
+    width: 33%;
+    margin: 15px;
+    font-size: calc(5px + 2vmin);
+    color: rgb(0, 0, 0);
+}
+
+.container{
+    margin: 10px;
+    background-color: rgb(69, 75, 93);
+    width:800px;
+    min-height: 90vh;
+    place-self: center;
+}
+
+.Select{
+    margin: 5px;
+}
