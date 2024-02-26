@@ -74,7 +74,7 @@ const filteredTodos = todos.filter((todo) => {
 return (
 <>  
       <div className='container'>
-        {/* Total Items: {todos.length} */}
+      <p>To Do List:</p>
           <Select
             selectOptions={selectOptions}
             value={selectedFilter}
@@ -82,7 +82,6 @@ return (
           />
         <input className='input'  placeholder="Enter to do" onKeyDown ={onEnterHendler} onChange = {onChangeAddInput} value={input}/>
         <button className='button' onClick = { () => onClickAdd(input)}>Add toDo</button> 
-      <p>To Do List:</p>
       <ToDoItem todos={filteredTodos} onCheckHandler={onCheckHandler} onClickDelete ={onClickDelete} />
     </div>
     </>

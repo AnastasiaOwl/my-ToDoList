@@ -1,20 +1,44 @@
-.ulStyle{
-    list-style-type: none;
-    padding: 0;
-    width: 33%;
-    margin: 5px;
-    font-size: calc(5px + 2vmin);
-    color: rgb(255, 255, 255);
-}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 800px;
+    border-top: 1px solid #ccc; /* Added border rule */
+    border-bottom: 1px solid #ccc;
+  }
+
+  .todo{
+    display: flex;
+    align-items: baseline;
+  margin-left: 5px;
+  }
+
+  .todo-name {
+    display: inline-flex;
+    line-height: 1; /* Normal line height for the text */
+  }
+
+  .todo-name.checked {
+    text-decoration: line-through; /* When checked, apply line-through */
+    text-decoration-style:solid;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 10px;
+    size: 10px;
+  }
 
 .deleteButton{
+    margin-right: 5px;
     background-color: rgba(182, 2, 2, 0.814);
     font-style: italic;
     color:white;
     font-size: calc(5px + 2vmin);
     color: rgb(255, 255, 255);
-}
-
-.li{
-    margin:6px;
 }
