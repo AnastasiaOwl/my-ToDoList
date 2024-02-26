@@ -2,6 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 import ToDoItem from './ToDoItem';
 import  './style/ToDo.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 import Select from './Select';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -75,15 +77,17 @@ return (
 <>  
       <div className='container'>
       <p>To Do List:</p>
+      <div className='mycontainer'>
           <Select
             selectOptions={selectOptions}
             value={selectedFilter}
             setValue={setSelectedFilter}
           />
         <input className='input'  placeholder="Enter to do" onKeyDown ={onEnterHendler} onChange = {onChangeAddInput} value={input}/>
-        <button className='button' onClick = { () => onClickAdd(input)}>Add toDo</button> 
-      <ToDoItem todos={filteredTodos} onCheckHandler={onCheckHandler} onClickDelete ={onClickDelete} />
-    </div>
+        <button className='button' onClick = { () => onClickAdd(input)}><FontAwesomeIcon icon={faPlusSquare}/></button>
+        </div>
+        <ToDoItem todos={filteredTodos} onCheckHandler={onCheckHandler} onClickDelete ={onClickDelete} />
+      </div>
     </>
   );
 };

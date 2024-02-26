@@ -5,10 +5,12 @@
   }
   
   .todoItem {
+    margin-left: 6px;
+    margin-right: 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 800px;
+    min-width: 790px;
     border-top: 1px solid #ccc; /* Added border rule */
     border-bottom: 1px solid #ccc;
   }
@@ -16,7 +18,7 @@
   .todo{
     display: flex;
     align-items: baseline;
-  margin-left: 5px;
+    margin-left: 10px;
   }
 
   .todo-name {
@@ -34,11 +36,15 @@
     size: 10px;
   }
 
-.deleteButton{
-    margin-right: 5px;
-    background-color: rgba(182, 2, 2, 0.814);
-    font-style: italic;
-    color:white;
-    font-size: calc(5px + 2vmin);
-    color: rgb(255, 255, 255);
-}
+  .deleteButton {
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .deleteButton:hover {
+    color: rgb(255, 0, 0); 
+  }

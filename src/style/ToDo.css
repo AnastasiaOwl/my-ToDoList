@@ -1,14 +1,17 @@
 .button{
-    background-color: black;
-    font-style: italic;
+    background-color: transparent;
+    border: none;
     color:white;
-    font-size: calc(5px + 2vmin);
-    color: rgb(255, 255, 255);
+    font-size: 30px;
+    cursor: pointer;
 }
+.button:hover {
+    color: rgb(80, 255, 98); 
+  }
 
 .input{
     padding: 0;
-    width: 33%;
+    width: 65%;
     margin: 15px;
     font-size: calc(5px + 2vmin);
     color: rgb(0, 0, 0);
@@ -20,6 +23,12 @@
     width:800px;
     min-height: 90vh;
     place-self: center;
+}
+
+.mycontainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 Select{

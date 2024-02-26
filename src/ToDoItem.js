@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './style/TodoItem.css';
 
 const ToDoItem = ({ todos, onCheckHandler, onClickDelete }) => {
@@ -14,7 +16,7 @@ const ToDoItem = ({ todos, onCheckHandler, onClickDelete }) => {
           />
         <p className={todo.checked ? "todo-name checked" : "todo-name"}>{todo.name}</p>
           </div>
-          <button className='deleteButton' onClick={() => onClickDelete(todo.id)}>Delete</button>
+           <button className='deleteButton' onClick={() => onClickDelete(todo.id)}><FontAwesomeIcon icon={faTrash} /></button>
         </div>
       ))}
     </div>
