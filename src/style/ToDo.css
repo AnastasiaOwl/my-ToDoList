@@ -9,6 +9,18 @@
     color: rgb(80, 255, 98); 
   }
 
+  .deleteButton {
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    font-size: 30px;
+  }
+  
+  .deleteButton:hover {
+    color: rgb(255, 0, 0); 
+  }
+
 .input{
     padding: 0;
     width: 65%;

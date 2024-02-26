@@ -1,9 +1,9 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import ToDoItem from './ToDoItem';
 import  './style/ToDo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faFloppyDisk, faEraser} from '@fortawesome/free-solid-svg-icons';
 import Select from './Select';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,6 +14,13 @@ const [selectedFilter, setSelectedFilter] = useState('Show all');
 const selectOptions =[{id: 1, value:'Show all'},
 {id:2, value:'Show in process'},
 {id:3, value:'Show crossed'},];
+
+useEffect(() => {
+  const storedTodos = JSON.parse(localStorage.getItem('todos'));
+  if (storedTodos) {
+    setTodos(storedTodos);
+  }
+}, []);
 
 const onClickAdd = (input) => {
   if (input.trim().length < 3) {
@@ -72,6 +79,15 @@ const filteredTodos = todos.filter((todo) => {
   }
 });
 
+const onClickSave=()=>{
+    localStorage.setItem('todos', JSON.stringify(todos));
+    alert('Todos saved to localStorage!');
+};
+
+const onClickClear=()=>{
+  localStorage.removeItem('todos');
+  setTodos([]);
+}
 
 return (
 <>  
@@ -85,8 +101,11 @@ return (
           />
         <input className='input'  placeholder="Enter to do" onKeyDown ={onEnterHendler} onChange = {onChangeAddInput} value={input}/>
         <button className='button' onClick = { () => onClickAdd(input)}><FontAwesomeIcon icon={faPlusSquare}/></button>
+        <button className='button' onClick={()=> onClickSave()}><FontAwesomeIcon icon={faFloppyDisk}/></button>
+        <button className='deleteButton'onClick={()=>onClickClear()}><FontAwesomeIcon icon={faEraser}/></button>
         </div>
         <ToDoItem todos={filteredTodos} onCheckHandler={onCheckHandler} onClickDelete ={onClickDelete} />
+        
       </div>
     </>
   );
