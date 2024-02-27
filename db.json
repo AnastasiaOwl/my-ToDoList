@@ -1,11 +1,25 @@
 {
-    "todos": [
+  "todos": [
     {
-    "id": 1,
-    "title": "todo 1",
-    "description": "jjjj",
-    "checked": false,
-    "creationDate": "27.02.2024"
+      "id": "20fc2190-9aed-4f8d-ad6e-37555b7f0543",
+      "title": "tohjhjkjh",
+      "description": "lklkblb",
+      "checked": false,
+      "creationDate": "02/27/2024"
+    },
+    {
+      "id": "fe4e955f-641c-4b2f-b363-912e8f60188f",
+      "title": "gijfhgkjdf",
+      "description": "dgdfgfdh",
+      "checked": false,
+      "creationDate": "02/27/2024"
+    },
+    {
+      "id": "9dd1e6ab-d671-4291-a297-4c1487db2a6d",
+      "title": "hhh",
+      "description": "gfhyfj",
+      "checked": false,
+      "creationDate": "02/27/2024"
     }
-]
+  ]
 }
