@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './style/TodoItem.css';
 
-const ToDoItem = ({ todos, onCheckHandler}) => {
+const ToDoItem = ({ todos, onCheckHandler, onClickDelete}) => {
   return (
     <div className='main'>
     {todos.map((todo) => (
@@ -18,6 +18,8 @@ const ToDoItem = ({ todos, onCheckHandler}) => {
         </div>
         <div className='todoText'>{todo.description}</div>
         <div className='todoText'>{todo.creationDate}</div>
+        {/* <button onClick={onClickEdit}>edit</button> */}
+        <button className='deleteButton' onClick={() => onClickDelete(todo.id)}><FontAwesomeIcon icon={faTrash}/></button>
     </div>
     ))}
  </div>

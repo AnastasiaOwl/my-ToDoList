@@ -3,7 +3,7 @@ import ToDoForm from './ToDoForm';
 import { useFetch } from './hooks/useFetch';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { format } from 'date-fns';
+import { format, setDate } from 'date-fns';
 import ToDoItem from './ToDoItem';
 import  './style/ToDo.css';
 
@@ -47,14 +47,27 @@ const ToDoComponentServer = () => {
     }
   };
 
+  const onClickDelete = async (id) => {
+    try {
+      await axios.delete(`todos/${id}`);
+      setTodos((prev) => prev.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error('Error deleting todo:', error);
+    }
+  };
+  
   return (
    <div className='container'>
+    <p>To Do List:</p>
         {isLoading ? (
             <div>Loading...</div>
         ) : todos.length === 0 ? (
             <div>
             <p>You currently have no tasks.</p>
             <button onClick={() => setShowAddForm(true)}>Add ToDo</button>
+            {showAddForm && (
+            <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />
+            )}
             </div>
         ) : (
         <div>
@@ -64,7 +77,7 @@ const ToDoComponentServer = () => {
             <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />
             )}
         </div>
-        <ToDoItem todos={todos} onCheckHandler={onCheckHandler}/>
+        <ToDoItem todos={todos} onCheckHandler={onCheckHandler} onClickDelete={onClickDelete}/>
         </div>
    )}
  </div>
