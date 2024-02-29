@@ -9,7 +9,7 @@
     margin-right: 10px;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     min-width: 780px;
     border-top: 1px solid #ccc; /* Added border rule */
     border-bottom: 1px solid #ccc;
@@ -21,8 +21,8 @@
     margin-left: 10px;
   }
   .todoText {
-    margin-left: 5 px;
-    margin-right: 5 px;
+   padding-left: 5px;
+   padding-right: 5px;
   }
 
   .todo-name {
@@ -59,4 +59,11 @@
 
   .text{
     display: flex;
+  }
+
+  .data{
+    font-style: italic;
+    font-weight: 100;
+    padding-left: 15px;
+    font-size: 20px;
   }
