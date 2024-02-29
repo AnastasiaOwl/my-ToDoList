@@ -9,7 +9,7 @@
     margin-right: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     min-width: 780px;
     border-top: 1px solid #ccc; /* Added border rule */
     border-bottom: 1px solid #ccc;
@@ -21,7 +21,8 @@
     margin-left: 10px;
   }
   .todoText {
-    margin: 5 px;
+    margin-left: 5 px;
+    margin-right: 5 px;
   }
 
   .todo-name {
@@ -41,7 +42,6 @@
   }
 
   .deleteButton {
-    margin-right: 10px;
     background-color: transparent;
     border: none;
     color: rgb(255, 255, 255); 
@@ -51,4 +51,12 @@
   
   .deleteButton:hover {
     color: rgb(255, 0, 0); 
+  }
+
+  .buttonContainer {
+    display: flex;
+  }
+
+  .text{
+    display: flex;
   }

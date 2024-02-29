@@ -38,7 +38,6 @@ const ToDoComponentServer = () => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, checked: !todo.checked } : todo
     );
-
     try {
       await axios.put(`todos/${id}`, updatedTodos.find(todo => todo.id === id));
       setTodos(updatedTodos);
@@ -55,6 +54,21 @@ const ToDoComponentServer = () => {
       console.error('Error deleting todo:', error);
     }
   };
+
+  const onUpdateTodo = async (id, updatedTodo)=>{
+    const formattedDate = format(new Date(), 'MM/dd/yyyy');
+    const updatedToDo = {
+      ...updatedTodo,
+      creationDate: formattedDate,
+    };
+    try {
+      await axios.put(`todos/${id}`, updatedToDo);
+      const updatedTodos = await axios.get('todos');
+      setTodos(updatedTodos.data);
+    } catch (error) {
+      console.error('Error updating todo:', error);
+    }
+  }
   
   return (
    <div className='container'>
@@ -77,7 +91,7 @@ const ToDoComponentServer = () => {
             <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />
             )}
         </div>
-        <ToDoItem todos={todos} onCheckHandler={onCheckHandler} onClickDelete={onClickDelete}/>
+        <ToDoItem todos={todos} onCheckHandler={onCheckHandler} onClickDelete={onClickDelete} onUpdateTodo={onUpdateTodo}/>
         </div>
    )}
  </div>
