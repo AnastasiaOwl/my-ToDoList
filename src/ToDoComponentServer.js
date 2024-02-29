@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { format, setDate } from 'date-fns';
 import ToDoItem from './ToDoItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import  './style/ToDo.css';
 
 const ToDoComponentServer = () => {
@@ -17,7 +19,7 @@ const ToDoComponentServer = () => {
   }, [fetchedTodos]);
 
   const addTodo = async (newTodo) => {
-    const formattedDate = format(new Date(), 'MM/dd/yyyy');
+    const formattedDate = format(new Date(), 'dd/MM/yyyy');
     const payload = {
       ...newTodo,
       id: uuidv4(),
@@ -56,7 +58,7 @@ const ToDoComponentServer = () => {
   };
 
   const onUpdateTodo = async (id, updatedTodo)=>{
-    const formattedDate = format(new Date(), 'MM/dd/yyyy');
+    const formattedDate = format(new Date(), 'dd/MM/yyyy');
     const updatedToDo = {
       ...updatedTodo,
       creationDate: formattedDate,
@@ -71,30 +73,30 @@ const ToDoComponentServer = () => {
   }
   
   return (
-   <div className='container'>
-    <p>To Do List:</p>
-        {isLoading ? (
-            <div>Loading...</div>
-        ) : todos.length === 0 ? (
-            <div>
-            <p>You currently have no tasks.</p>
-            <button onClick={() => setShowAddForm(true)}>Add ToDo</button>
-            {showAddForm && (
-            <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />
-            )}
-            </div>
-        ) : (
+    <div className='container'>
+      <p>To Do List:</p>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : todos.length === 0 ? (
         <div>
-            <div className='mycontainer'>
-            <button onClick={() => setShowAddForm(true)}>Add ToDo</button>
-            {showAddForm && (
-            <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />
-            )}
+          <p>You currently have no tasks.</p>
+          <button className='Eye' onClick={() => setShowAddForm(!showAddForm)}>
+            {showAddForm ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
+          </button>
+          {showAddForm && <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />}
         </div>
-        <ToDoItem todos={todos} onCheckHandler={onCheckHandler} onClickDelete={onClickDelete} onUpdateTodo={onUpdateTodo}/>
+      ) : (
+        <div>
+          <div className='mycontainer'>
+            <button className='Eye' onClick={() => setShowAddForm(!showAddForm)}>
+              {showAddForm ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
+            </button>
+            {showAddForm && <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />}
+          </div>
+          <ToDoItem todos={todos} onCheckHandler={onCheckHandler} onClickDelete={onClickDelete} onUpdateTodo={onUpdateTodo}/>
         </div>
-   )}
- </div>
+      )}
+    </div>
   );
 };
 

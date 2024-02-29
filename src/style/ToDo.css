@@ -5,10 +5,17 @@
     font-size: 20px;
     cursor: pointer;
 }
-/* hi */
 .button:hover {
     color: rgb(80, 255, 98); 
   }
+
+.Eye{
+  background-color: transparent;
+    border: none;
+    color:white;
+    cursor: pointer;
+    font-size: 20px;
+}
 
   .deleteButton {
     background-color: transparent;
@@ -25,7 +32,7 @@
 .input{
     padding: 0;
     margin: 5px;
-    font-size: calc(5px + 2vmin);
+    font-size: 15px;
     color: rgb(0, 0, 0);
 }
 

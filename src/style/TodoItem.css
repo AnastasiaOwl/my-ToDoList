@@ -26,7 +26,7 @@
   }
 
   .todo-name {
-    margin: 5 px;
+    margin: 5px;
     display: inline-flex;
     line-height: 1; /* Normal line height for the text */
   }
@@ -38,7 +38,7 @@
 
   input[type="checkbox"] {
     margin-right: 10px;
-    size: 10px;
+    size: 15px;
   }
 
   .deleteButton {
@@ -67,3 +67,12 @@
     padding-left: 15px;
     font-size: 20px;
   }
+.form{
+  display:flex;
+  min-width: 780px;
+  justify-content: center; 
+  align-items: center;
+}
+.label{
+  padding:5px;
+}

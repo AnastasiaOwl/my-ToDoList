@@ -46,7 +46,6 @@ const ToDoForm = ({ setShowAddForm, addTodo }) => {
         onChange={(e) => setInputDescription(e.target.value)}
       />
       <button className='button' onClick={handleAddTodo}><FontAwesomeIcon icon={faPlusSquare}/></button>
-      <button onClick={() => setShowAddForm(false)}>Cancel</button>
     </>
   );
 };

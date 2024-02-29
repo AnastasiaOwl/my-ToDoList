@@ -30,8 +30,8 @@ const ToDoItem = ({ todos, onCheckHandler, onClickDelete, onUpdateTodo }) => {
               </div>
               <div className='todoText'>{todo.description}</div>
               <div className='buttonContainer'>
-              <button className='deleteButton' onClick={() => onClickDelete(todo.id)}> <FontAwesomeIcon icon={faTrash}/></button>
               <button className='button' onClick={() => handleEdit(todo)}><FontAwesomeIcon icon={faPen}/></button>
+              <button className='deleteButton' onClick={() => onClickDelete(todo.id)}> <FontAwesomeIcon icon={faTrash}/></button>
               <div className='data'>{todo.creationDate}</div>
               </div>
               
