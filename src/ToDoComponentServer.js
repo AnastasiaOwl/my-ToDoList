@@ -74,7 +74,6 @@ const ToDoComponentServer = () => {
   
   return (
     <div className='container'>
-      <p>To Do List:</p>
       {isLoading ? (
         <div>Loading...</div>
       ) : todos.length === 0 ? (

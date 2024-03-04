@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import ToDoItem from '../ToDoItem';
+import ToDoItem from '../../ToDoItem';
 import  './style/ToDo.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faFloppyDisk, faEraser} from '@fortawesome/free-solid-svg-icons';
