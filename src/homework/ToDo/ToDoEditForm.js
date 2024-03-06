@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave} from '@fortawesome/free-solid-svg-icons';
-import './style/TodoItem.css';
+// import './style/TodoItem.css';
 
 
 const ToDoEditForm = ({todo, setShowEditForm, updateTodo})=>{

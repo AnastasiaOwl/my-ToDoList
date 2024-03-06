@@ -21,3 +21,12 @@ export const deleteToDo = async (id) => {
   await axios.delete(`todos/${id}`);
 };
 
+export const loginUser = async (login, email) => {
+  try {
+    const response = await axios.post('auth/login', { login, email });
+    return response.data;
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error;
+  }
+};
