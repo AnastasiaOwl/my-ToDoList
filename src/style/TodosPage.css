@@ -1,0 +1,16 @@
+.page-form{
+    margin: 10px;
+    background-color: rgb(69, 75, 93);
+    width:800px;
+    min-height: 90vh;
+    place-self: center;
+}
+.items{
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.form-input{
+    margin-left: 7px;
+    margin-right: 7px;
+}

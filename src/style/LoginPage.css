@@ -1,0 +1,32 @@
+.login-form {
+    margin-top: 10px;
+    background-color: rgb(69, 75, 93);
+    width: 700px;
+    min-height: 80vh;
+    place-self: center;
+  }
+  .login-items{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .inputs {
+    margin: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 15px;
+    font-size: 16px;
+  }
+.login-button{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.login-button:hover {
+    color: rgb(80, 255, 98); 
+  }

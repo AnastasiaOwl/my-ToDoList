@@ -9,14 +9,14 @@
     },
     {
       "title": "dhhhhh",
-      "description": "kjhjkhkkkkkkkkkkkkkkkk",
+      "description": "kjhjkhkkkkkkooo",
       "creationDate": "29/02/2024",
       "id": "0d01dfc6-1edc-4962-b7c7-9b03da52e953",
       "checked": false
     },
     {
       "title": "jhgjh",
-      "description": "jhgjhv",
+      "description": "jhgjhkkkooo",
       "creationDate": "02/29/2024",
       "id": "c2fa32db-1860-4b85-bca3-c30807a10abb",
       "checked": false
@@ -27,6 +27,13 @@
       "description": "k,nlk",
       "checked": false,
       "creationDate": "02/29/2024"
+    }
+  ],
+  "auth": [
+    {
+      "id": "e815",
+      "login": "Filina",
+      "email": "fiillina.anastasia@gmail.com"
     }
   ]
 }

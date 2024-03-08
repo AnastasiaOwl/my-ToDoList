@@ -9,7 +9,6 @@ font-size: calc(8px + 2vmin);
 color: rgb(255, 255, 255);
 flex-direction: column;
 }
-
 .App-link {
   color: #61dafb;
 }

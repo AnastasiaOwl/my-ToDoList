@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
+import '../style/TodosPage.css';
+
 import axios from 'axios';
 
 const TodosPage = ({ updateTodo }) => {
@@ -12,7 +14,6 @@ const TodosPage = ({ updateTodo }) => {
   });
 
   useEffect(() => {
-    // Fetch the todo with the given id
     const fetchTodo = async () => {
       try {
         const response = await axios.get(`todos/${id}`);
@@ -28,8 +29,7 @@ const TodosPage = ({ updateTodo }) => {
   const handleSaveTodo = async () => {
     try {
       await axios.put(`todos/${id}`, editedTodo);
-      // Handle any other save logic here
-    } catch (error) {
+      } catch (error) {
       console.error('Error updating todo:', error);
     }
   };
@@ -46,24 +46,28 @@ const TodosPage = ({ updateTodo }) => {
 
   return (
     <>
-      <div className='form'>
-        <label>Title:</label>
-        <input
+      <div className='page-form'>
+        <div className='items'>
+        <label>Title:
+        <input  className='form-input'
           type="text"
           placeholder="Title"
           name="title"
           value={editedTodo.title}
           onChange={handleChange}
         />
-        <label className='label'>Description:</label>
-        <input
+        </label>
+        <label>Description:
+        <input className='form-input'
           type="text"
           placeholder="Description"
           name="description"
           value={editedTodo.description}
           onChange={handleChange}
         />
+        </label>
         <Link className='button' to="/ToDoList" onClick={handleSaveTodo}><FontAwesomeIcon icon={faSave} /></Link>
+        </div>
       </div>
     </>
   )
