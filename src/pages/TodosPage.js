@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
+import { format} from 'date-fns';
 import '../style/TodosPage.css';
 
 import axios from 'axios';
@@ -11,6 +12,7 @@ const TodosPage = ({ updateTodo }) => {
   const [editedTodo, setEditedTodo] = useState({
     title: '',
     description: '',
+    creationDate: '',
   });
 
   useEffect(() => {
@@ -27,6 +29,8 @@ const TodosPage = ({ updateTodo }) => {
   }, [id]);
 
   const handleSaveTodo = async () => {
+    const formattedDate = format(new Date(), 'dd/MM/yyyy');
+    editedTodo.creationDate=formattedDate;
     try {
       await axios.put(`todos/${id}`, editedTodo);
       } catch (error) {
