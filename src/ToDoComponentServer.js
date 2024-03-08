@@ -3,7 +3,8 @@ import ToDoForm from './ToDoForm';
 import { useFetch } from './hooks/useFetch';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { format, setDate } from 'date-fns';
+import { format} from 'date-fns';
+import ErrorPage from './pages/ErrorPage';
 import ToDoItem from './ToDoItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +12,7 @@ import  './style/ToDo.css';
 
 const ToDoComponentServer = () => {
   const [todos, setTodos] = useState([]);
-  const { data: fetchedTodos, isLoading } = useFetch('todos');
+  const { data: fetchedTodos, isLoading , error} = useFetch('todos');
   const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
@@ -71,7 +72,9 @@ const ToDoComponentServer = () => {
       console.error('Error updating todo:', error);
     }
   }
-  
+  if (error) {
+    return <ErrorPage />;
+  }
   return (
     <div className='container'>
       {isLoading ? (
