@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllUsers } from '../api/api';
 import { NavLink, Navigate } from 'react-router-dom';
-import '../style/LoginPage.css';
+import '../style/AuthPage.css';
 
 const AuthPage = ({ handleLoginSuccess }) => {
   const [inputEmail, setInputEmail] = useState('');
@@ -49,19 +49,19 @@ const AuthPage = ({ handleLoginSuccess }) => {
 
   return (
     <>
-      <div className='login-form'>
-        <div className='login-items'>
+      <div className='auth-form'>
+        <div className='auth-items'>
           <input
-            className='inputs'
+            className='auth-inputs'
             type="text"
             placeholder="Email"
             value={inputEmail}
             onChange={(e) => setInputEmail(e.target.value)}
           />
-          <button className='login-button' onClick={handleLogin}>Login</button> 
+          <button className='auth-button' onClick={handleLogin}>Login</button> 
           {userNotFound && (
           <p> Sorry, we can't find this user.{' '}
-          <NavLink className='link' to='/LoginPage'>Registered?</NavLink>
+          <NavLink className='auth-link' to='/LoginPage'>Registered?</NavLink>
         </p>
       )}
         </div>

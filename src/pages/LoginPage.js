@@ -76,7 +76,7 @@ const LoginPage = ({ handleLoginSuccess}) => {
             <p className='error-message'>User with this login and email already exists.</p>
           )}
           {error && <p className='error-message'>{error}</p>}
-      <p>Already have registerted? Super, go here <NavLink className='link' to='/AuthPage'>authorize</NavLink></p>
+      <p>Already have registerted? Super, go here <NavLink className='login-link' to='/AuthPage'>authorize</NavLink></p>
        </div>
       </div>
     </>
