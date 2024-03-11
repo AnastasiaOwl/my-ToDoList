@@ -88,7 +88,7 @@ const ToDoComponentServer = () => {
           {showAddForm && <ToDoForm setShowAddForm={setShowAddForm} addTodo={addTodo} />}
         </div>
       ) : (
-        <div>
+        <div className='todoList'>
           <div className='mycontainer'>
             <button className='Eye' onClick={() => setShowAddForm(!showAddForm)}>
               {showAddForm ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}

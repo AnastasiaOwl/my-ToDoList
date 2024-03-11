@@ -62,7 +62,7 @@ const TodosPage = ({ updateTodo }) => {
         />
         </label>
         <label>Description:
-        <input className='form-input'
+        <input className='form-inputDescr'
           type="text"
           placeholder="Description"
           name="description"

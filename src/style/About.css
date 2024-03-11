@@ -1,0 +1,22 @@
+.text{
+    font-family:monospace, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-size:larger;
+    font-weight: 20;
+    display: inline;
+    max-width: 700px;
+}
+.myimage{
+    width:350px;
+    height: 350px;
+}
+.picture-container{
+    display:flex;
+    justify-content: flex-end;
+}
+.main-container{
+    margin-top: 35px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

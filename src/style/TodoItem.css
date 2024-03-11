@@ -11,8 +11,10 @@
     align-items: center;
     justify-content: space-between;
     min-width: 780px;
-    border-top: 1px solid #ccc; /* Added border rule */
+    border-top: 1px solid #ccc; 
     border-bottom: 1px solid #ccc;
+    font-family:monospace, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
   }
 
   .todo{
@@ -28,11 +30,11 @@
   .todo-name {
     margin: 5px;
     display: inline-flex;
-    line-height: 1; /* Normal line height for the text */
+    line-height: 1; 
   }
 
   .todo-name.checked {
-    text-decoration: line-through; /* When checked, apply line-through */
+    text-decoration: line-through; 
     text-decoration-style:solid;
   }
 
@@ -63,9 +65,10 @@
 
   .data{
     font-style: italic;
-    font-weight: 100;
+    font-weight:lighter;
+    color:#dadadac8;
     padding-left: 15px;
-    font-size: 20px;
+    font-size: 15px;
   }
 .form{
   display:flex;
