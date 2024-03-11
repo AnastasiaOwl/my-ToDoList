@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import { addUser, getAllUsers} from '../api/api'; // Import your addUser function
+import React, { useState, useEffect} from 'react';
+import { NavLink} from 'react-router-dom';
+import { addUser, getAllUsers} from '../api/api'; 
 import '../style/LoginPage.css'
 
 const LoginPage = ({ handleLoginSuccess}) => {
   const [inputLogin, setInputLogin] = useState('');
   const [inputEmail, setInputEmail] = useState('');
+  const [userExistsError, setUserExistsError] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('loggedInUser');
+    if (storedEmail) {
+      setInputEmail(storedEmail);
+      handleLoginSuccess();
+    }
+  }, [handleLoginSuccess]);
 
   const handleLogin = async () => {
     if (!inputLogin || !inputEmail) {
@@ -20,13 +30,15 @@ const LoginPage = ({ handleLoginSuccess}) => {
 
       if (currentUser) {
         console.log('User found in database:', currentUser);
-        handleLoginSuccess(); // Log in the user
+        setUserExistsError(true);
       } else {
         // Add the user to the database
         const response = await addUser({ login: inputLogin, email: inputEmail });
         if (response.data && response.data.success) {
           console.log('User added successfully:', response.data);
+          localStorage.setItem('loggedInUser', inputEmail); 
           handleLoginSuccess(); // Call the onLoginSuccess function passed from App.js
+          setInputEmail('');
         } else {
           console.error('User addition failed:', response.data ? response.data.message : 'Unknown error');
           setError(response.data ? response.data.message : 'Unknown error');
@@ -60,6 +72,11 @@ const LoginPage = ({ handleLoginSuccess}) => {
         onChange={(e) => setInputEmail(e.target.value)}
       />
       <button className='login-button' onClick={handleLogin}>Login</button>
+          {userExistsError && (
+            <p className='error-message'>User with this login and email already exists.</p>
+          )}
+          {error && <p className='error-message'>{error}</p>}
+      <p>Already have registerted? Super, go here <NavLink className='link' to='/AuthPage'>authorize</NavLink></p>
        </div>
       </div>
     </>

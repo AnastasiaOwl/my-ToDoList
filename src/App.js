@@ -12,6 +12,7 @@ const About = lazy(()=>import('./pages/About'));
 const TodosPage = lazy(()=>import('./pages/TodosPage'));
 const NotFoundPage = lazy(()=>import('./pages/NotFoundPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
+const AuthPage = lazy(() => import('./pages/AuthPage'));
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,12 +40,24 @@ function App() {
     setIsLoggedIn(true);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('loggedInUser');
+  };
   
   return (
     <Router>
     <div className="App">
     <header className='App-header'>
-          <NavLink to='/LoginPage' className="App-link" activeClassName="active">Login</NavLink>
+    {isLoggedIn ? (
+            <>
+              <NavLink to='/AuthPage' className="App-link" onClick={handleLogout}>Log out</NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to='/LoginPage' className="App-link" activeClassName="active">Login</NavLink>
+            </>
+          )}
           <NavLink to='/' className="App-link" activeClassName="active">Home</NavLink>
           {isLoggedIn && (
             <>
@@ -57,6 +70,7 @@ function App() {
       <body className="App-body">
         <Routes>
           <Route path='/LoginPage'element={<LoginPage handleLoginSuccess={handleLoginSuccess} />} />
+          <Route path='/AuthPage'element={<AuthPage handleLoginSuccess={handleLoginSuccess} />} />
           <Route path='/' element={<Home/>}/>
           <Route path='/ToDoList' element={<PrivateRoute isAuthenticated={isLoggedIn}><ToDoList/></PrivateRoute>}/>
           <Route path='/About' element={<PrivateRoute isAuthenticated={isLoggedIn}><About/> </PrivateRoute>}/>
