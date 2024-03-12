@@ -12,18 +12,18 @@ It has two branches: in main simple ToDoList, in http work with server and http 
 - User-Friendly Interface: Simple and intuitive design for a smooth user experience.
 
 ## Pages:
-# Home:
+### Home:
 - Information about the app and its features.
 - Link to access your todo list.
-# About:
+### About:
 - Details about the technologies used in developing this app.
-# Todos:
+### Todos:
 - Your personal todo list.
 - Edit and delete buttons for each todo item.
 - Creation date displayed, automatically updated upon editing.
-# Login:
+### Login:
 - Login form
-# Authorization:
+### Authorization:
 - Authorisation form
 
 The "About" and "Todos" pages are private routes, accessible only after user authorization or registration. Log out option available for user convenience.
