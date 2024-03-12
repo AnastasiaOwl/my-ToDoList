@@ -1,44 +1,12 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { getAllUsers } from '../api/api';
+import React, { createContext, useState} from 'react';
 
-const AuthContext = createContext();
-
-const AuthProvider = ({ children }) => {
+export const AuthContext = createContext();
+export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    checkLoggedIn();
-  }, []);
-
-  const checkLoggedIn = async () => {
-    try {
-      const users = await getAllUsers();
-      const currentUser = users.find(user => user.login === "inputLogin" && user.email === "inputEmail");
-      if (currentUser) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    } catch (error) {
-      console.error('Error checking login:', error.message);
-      setIsLoggedIn(false);
-    }
-  };
-
-  const handleLoginSuccess = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem('loggedInUser');
-  };
-
   return (
-    <AuthContext.Provider value={{ isLoggedIn, handleLoginSuccess, handleLogout }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
-export { AuthContext, AuthProvider };

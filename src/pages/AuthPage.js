@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { getAllUsers } from '../api/api';
 import { NavLink, Navigate } from 'react-router-dom';
 import '../style/AuthPage.css';
 
-const AuthPage = ({ handleLoginSuccess }) => {
+const AuthPage = ({handleLoginSuccess}) => {
+
   const [inputEmail, setInputEmail] = useState('');
   const [userNotFound, setUserNotFound] = useState(false); // State to track user not found
   const [error, setError] = useState(null);
@@ -23,7 +24,6 @@ const AuthPage = ({ handleLoginSuccess }) => {
     }
 
     try {
-      // Check if user already exists
       const users = await getAllUsers();
       const currentUser = users.find((user) => user.email === inputEmail);
 
@@ -33,7 +33,6 @@ const AuthPage = ({ handleLoginSuccess }) => {
         handleLoginSuccess(); // Log in the user
         setInputEmail('');
       } else {
-        // User not found, set state to show the message
         setUserNotFound(true);
       }
     } catch (error) {

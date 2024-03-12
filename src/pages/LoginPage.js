@@ -3,7 +3,8 @@ import { NavLink} from 'react-router-dom';
 import { addUser, getAllUsers} from '../api/api'; 
 import '../style/LoginPage.css'
 
-const LoginPage = ({ handleLoginSuccess}) => {
+const LoginPage = ({handleLoginSuccess}) => {
+
   const [inputLogin, setInputLogin] = useState('');
   const [inputEmail, setInputEmail] = useState('');
   const [userExistsError, setUserExistsError] = useState(false);

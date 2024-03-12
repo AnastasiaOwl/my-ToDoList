@@ -1,9 +1,10 @@
 import './style/App.css';
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useContext} from 'react';
 import {BrowserRouter as Router,Route,Routes,NavLink} from 'react-router-dom';
 import {lazy, Suspense} from 'react';
 import PrivateRoute from './PrivateRoute';
 import { getAllUsers } from './api/api';
+import { AuthContext} from './AuthContext/AuthContext';
 
 
 const Home = lazy(()=>import('./pages/Home'));
@@ -15,7 +16,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext);
 
   useEffect(() => {
     checkLoggedIn();
@@ -69,12 +70,12 @@ function App() {
     <Suspense fallback={<div>Loading...</div>}>
       <body className="App-body">
         <Routes>
-          <Route path='/LoginPage'element={<LoginPage handleLoginSuccess={handleLoginSuccess} />} />
-          <Route path='/AuthPage'element={<AuthPage handleLoginSuccess={handleLoginSuccess} />} />
+          <Route path='/LoginPage'element={<LoginPage handleLoginSuccess={handleLoginSuccess}/>} />
+          <Route path='/AuthPage'element={<AuthPage handleLoginSuccess={handleLoginSuccess}/>} />
           <Route path='/' element={<Home/>}/>
-          <Route path='/ToDoList' element={<PrivateRoute isAuthenticated={isLoggedIn}><ToDoList/></PrivateRoute>}/>
-          <Route path='/About' element={<PrivateRoute isAuthenticated={isLoggedIn}><About/> </PrivateRoute>}/>
-          <Route path='/TodosPage/:id' element={<PrivateRoute isAuthenticated={isLoggedIn}><TodosPage/></PrivateRoute>} />
+          <Route path='/ToDoList' element={<PrivateRoute><ToDoList/></PrivateRoute>}/>
+          <Route path='/About' element={<PrivateRoute ><About/> </PrivateRoute>}/>
+          <Route path='/TodosPage/:id' element={<PrivateRoute ><TodosPage/></PrivateRoute>} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </body>
