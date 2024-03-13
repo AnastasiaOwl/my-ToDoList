@@ -10,13 +10,13 @@
     color:white;
     text-decoration: underline;
 }
-.main-container{
+.main-container-home{
     margin-top: 35px;
     align-items: center;
     display: flex;
     justify-content: center;
 }
-.text{
+.text-home{
     font-family:monospace, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: normal;
     font-size:larger;

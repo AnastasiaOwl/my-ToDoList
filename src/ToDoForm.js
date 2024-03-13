@@ -33,13 +33,13 @@ const ToDoForm = ({ setShowAddForm, addTodo }) => {
 
   return (
     <>
-      <input className='input'
+      <input className='input-name'
         type="text"
         placeholder="Title"
         value={inputTitle}
         onChange={(e) => setInputTitle(e.target.value)}
       />
-      <input className='input'
+      <input className='input-description'
         type="text"
         placeholder="Description"
         value={inputDescription}
@@ -47,6 +47,7 @@ const ToDoForm = ({ setShowAddForm, addTodo }) => {
       />
       <button className='button' onClick={handleAddTodo}><FontAwesomeIcon icon={faPlusSquare}/></button>
     </>
+   
   );
 };
 

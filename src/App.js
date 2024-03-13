@@ -25,7 +25,8 @@ function App() {
   const checkLoggedIn = async () => {
     try {
       const users = await getAllUsers();
-      const currentUser = users.find(user => user.login === "inputLogin" && user.email === "inputEmail");
+      const storedEmail = localStorage.getItem('loggedInUser');
+      const currentUser = users.find(user => user.email === storedEmail);
       if (currentUser) {
         setIsLoggedIn(true);
       } else {
@@ -37,8 +38,9 @@ function App() {
     }
   };
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (email) => {
     setIsLoggedIn(true);
+    localStorage.setItem('loggedInUser', email);
   };
 
   const handleLogout = () => {
@@ -52,18 +54,18 @@ function App() {
     <header className='App-header'>
     {isLoggedIn ? (
             <>
-              <NavLink to='/AuthPage' className="App-link" onClick={handleLogout}>Log out</NavLink>
+              <NavLink to='/AuthPage' className="App-link" onClick={handleLogout}>SignOut</NavLink>
             </>
           ) : (
             <>
-              <NavLink to='/LoginPage' className="App-link" activeClassName="active">Login</NavLink>
+              <NavLink to='/LoginPage' className="App-link" activeClassName="active">Registration</NavLink>
             </>
           )}
           <NavLink to='/' className="App-link" activeClassName="active">Home</NavLink>
+          <NavLink to='/About' className="App-link" activeClassName="active">About</NavLink>
           {isLoggedIn && (
             <>
               <NavLink to='/ToDoList' className="App-link" activeClassName="active">ToDo list</NavLink>
-              <NavLink to='/About' className="App-link" activeClassName="active">About</NavLink>
             </>
           )}
         </header>
@@ -73,8 +75,8 @@ function App() {
           <Route path='/LoginPage'element={<LoginPage handleLoginSuccess={handleLoginSuccess}/>} />
           <Route path='/AuthPage'element={<AuthPage handleLoginSuccess={handleLoginSuccess}/>} />
           <Route path='/' element={<Home/>}/>
+          <Route path='/About' element={<About/>}/>
           <Route path='/ToDoList' element={<PrivateRoute><ToDoList/></PrivateRoute>}/>
-          <Route path='/About' element={<PrivateRoute ><About/> </PrivateRoute>}/>
           <Route path='/TodosPage/:id' element={<PrivateRoute ><TodosPage/></PrivateRoute>} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>

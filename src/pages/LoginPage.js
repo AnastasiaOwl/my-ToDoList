@@ -72,7 +72,7 @@ const LoginPage = ({handleLoginSuccess}) => {
         value={inputEmail}
         onChange={(e) => setInputEmail(e.target.value)}
       />
-      <button className='login-button' onClick={handleLogin}>Login</button>
+      <button className='login-button' onClick={handleLogin}>SignIn</button>
           {userExistsError && (
             <p className='error-message'>User with this login and email already exists.</p>
           )}

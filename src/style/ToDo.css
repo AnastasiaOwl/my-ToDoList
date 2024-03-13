@@ -29,31 +29,32 @@
     color: rgb(255, 0, 0); 
   }
 
-.input{
-    padding: 0;
+  .input-name,
+  .input-description {
     margin: 5px;
     font-size: 15px;
     color: rgb(0, 0, 0);
-}
+    word-wrap: break-word;
+    width: fit-content; 
+  }
+  
 
 .container{
-    margin: 10px;
-    background-color: rgb(69, 75, 93);
-    width:850px;
-    min-height: 90vh;
-    place-self: center;
+  margin: 10px;
+  margin-left: 50px;
+  background-color: rgb(69, 75, 93);
+  min-height: 90vh;
+  margin-right: 50px;
 }
+
 .mycontainer{
   margin:10px;
   display: flex;
-  justify-content: flex-start;
-  width: 700px;
+  align-items: center;
 }
 .todoList{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
 }
 Select{
     margin: 5px;

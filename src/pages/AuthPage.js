@@ -13,7 +13,7 @@ const AuthPage = ({handleLoginSuccess}) => {
     const storedEmail = localStorage.getItem('loggedInUser');
     if (storedEmail) {
       setInputEmail(storedEmail);
-      handleLoginSuccess();
+       handleLoginSuccess(storedEmail);
     }
   }, [handleLoginSuccess]);
 
@@ -28,10 +28,8 @@ const AuthPage = ({handleLoginSuccess}) => {
       const currentUser = users.find((user) => user.email === inputEmail);
 
       if (currentUser) {
-        console.log('User found in database:', currentUser);
         localStorage.setItem('loggedInUser', inputEmail);
-        handleLoginSuccess(); // Log in the user
-        setInputEmail('');
+        handleLoginSuccess(inputEmail); // Log in the user
       } else {
         setUserNotFound(true);
       }
@@ -39,7 +37,6 @@ const AuthPage = ({handleLoginSuccess}) => {
       console.error('Error logging in:', error.message);
       setError('Error logging in. Please try again.');
     }
-    setInputEmail('');
   };
 
   if (localStorage.getItem('loggedInUser')) {
