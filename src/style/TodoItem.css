@@ -4,6 +4,7 @@
   }
   
   .todoItem {
+    padding: 8px;
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
@@ -28,10 +29,12 @@
   }
 
   .todo-name {
+    display: flex;
     margin: 5px;
     line-height: 1;
     word-wrap: break-word;
     max-width: 350px;
+    justify-content: flex-start;
   }
 
   .todo-name.checked {

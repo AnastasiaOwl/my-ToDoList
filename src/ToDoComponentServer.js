@@ -15,10 +15,10 @@ const ToDoComponentServer = () => {
   const [todos, setTodos] = useState([]);
   const { data: fetchedTodos, isLoading , error} = useFetch('todos');
   const [showAddForm, setShowAddForm] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('Show all');
-  const selectOptions =[{id: 1, value:'Show all'},
-  {id:2, value:'Show in process'},
-  {id:3, value:'Show crossed'},];
+  const [selectedFilter, setSelectedFilter] = useState('All');
+  const selectOptions =[{id: 1, value:'All'},
+  {id:2, value:'In process'},
+  {id:3, value:'Done'},];
 
   useEffect(() => {
     setTodos(fetchedTodos);
@@ -64,9 +64,9 @@ const ToDoComponentServer = () => {
   };
 
   const filteredTodos = todos.filter((todo) => {
-    if (selectedFilter === 'Show in process') {
+    if (selectedFilter === 'In process') {
       return !todo.checked;
-    } else if (selectedFilter === 'Show crossed') {
+    } else if (selectedFilter === 'Done') {
       return todo.checked;
     } else {
       return true;
