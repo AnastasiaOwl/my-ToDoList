@@ -12,10 +12,10 @@
       "description": "Engage in at least 30 minutes of moderate-intensity exercise most days of the week. This could include brisk walking, cycling, swimming, or dancing.",
       "creationDate": "14/03/2024",
       "id": "0d01dfc6-1edc-4962-b7c7-9b03da52e953",
-      "checked": false
+      "checked": true
     },
     {
-      "title": "Learn a new skill:",
+      "title": "Learn a new skills:",
       "description": "Dedicate 1 hour each week to learning a new skill that interests you. This could be anything from coding or playing an instrument to mastering a new recipe.",
       "creationDate": "14/03/2024",
       "id": "c2fa32db-1860-4b85-bca3-c30807a10abb",
@@ -25,14 +25,14 @@
       "id": "46abf6a8-c816-47dd-9b8a-4c209d3126fb",
       "title": "Connect with loved ones:",
       "description": "Make a conscious effort to connect with friends and family more regularly. Schedule phone calls, video chats, or in-person meetings.",
-      "checked": false,
+      "checked": true,
       "creationDate": "14/03/2024"
     },
     {
       "id": "9cc73f5c-adad-4061-9b95-763a385cabf9",
       "title": "Explore Mykolaiv:",
       "description": "Dedicate some time each week to explore different parts of Mykolaiv. Visit local museums, historical sites, parks, or try a new restaurant.",
-      "checked": false,
+      "checked": true,
       "creationDate": "14/03/2024"
     }
   ],
