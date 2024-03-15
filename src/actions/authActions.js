@@ -4,5 +4,3 @@ export const setLoggedInUser = (isLoggedIn) => ({
   type: SET_LOGGED_IN_USER,
   payload: isLoggedIn,
 });
-
-  

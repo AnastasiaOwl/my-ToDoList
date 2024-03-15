@@ -1,3 +1,4 @@
+// authReducer.js
 import { SET_LOGGED_IN_USER } from '../actions/actionTypes';
 
 const initialState = {
@@ -17,5 +18,6 @@ const authReducer = (state = initialState, action) => {
 };
 
 export default authReducer;
+
 
   
