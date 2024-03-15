@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from './AuthContext/AuthContext';
+import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({ children }) => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   if (!isLoggedIn) {
     return <Navigate to="/LoginPage" replace />;
