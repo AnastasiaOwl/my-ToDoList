@@ -1,4 +1,4 @@
-This is a simple todo list application built with React. The app allows users to create, manage, and delete their todos.
+This is a simple todo list application built with React using redux library. The app allows users to create, manage, and delete their todos.
 
 It has two branches: in main simple ToDoList, in http work with server and http requests. In http their is a folder homework, which DOESN`T belong to the main project and it contains different components for practices with React.
 
