@@ -6,4 +6,4 @@ This is a simple todo list application built with React. The app allows users to
 - Delete todo items
 - Simple and intuitive user interface
 
-It has two branches: in main simple ToDoList, in http work with server and http requests.
+It has three branches: in main simple ToDoList, in http work with server and http requests, in redux the same that is in http but with redux library.
