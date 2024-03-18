@@ -1,21 +1,30 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllUsers } from '../api/api';
 import { NavLink, Navigate } from 'react-router-dom';
+import { setLoggedInUser } from '../actions/authActions';
 import '../style/AuthPage.css';
 
-const AuthPage = ({handleLoginSuccess}) => {
-
+const AuthPage = () => {
   const [inputEmail, setInputEmail] = useState('');
-  const [userNotFound, setUserNotFound] = useState(false); // State to track user not found
+  const [userNotFound, setUserNotFound] = useState(false);
   const [error, setError] = useState(null);
+
+  // Redux
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  const handleLoginSuccess = (email) => {
+    dispatch(setLoggedInUser(true)); // Dispatch action to update login status
+    localStorage.setItem('loggedInUser', email);
+  };
 
   useEffect(() => {
     const storedEmail = localStorage.getItem('loggedInUser');
-    if (storedEmail) {
+    if (storedEmail && isLoggedIn) {
       setInputEmail(storedEmail);
-       handleLoginSuccess(storedEmail);
     }
-  }, [handleLoginSuccess]);
+  }, [isLoggedIn]);
 
   const handleLogin = async () => {
     if (!inputEmail) {
@@ -28,8 +37,7 @@ const AuthPage = ({handleLoginSuccess}) => {
       const currentUser = users.find((user) => user.email === inputEmail);
 
       if (currentUser) {
-        localStorage.setItem('loggedInUser', inputEmail);
-        handleLoginSuccess(inputEmail); // Log in the user
+        handleLoginSuccess(inputEmail);
       } else {
         setUserNotFound(true);
       }
@@ -39,33 +47,31 @@ const AuthPage = ({handleLoginSuccess}) => {
     }
   };
 
-  if (localStorage.getItem('loggedInUser')) {
+  if (isLoggedIn) {
     return <Navigate to="/" />;
   }
 
   return (
-    <>
-      <div className='auth-form'>
-        <div className='auth-items'>
-          <input
-            className='auth-inputs'
-            type="text"
-            placeholder="Email"
-            value={inputEmail}
-            onChange={(e) => setInputEmail(e.target.value)}
-          />
-          <button className='auth-button' onClick={handleLogin}>Login</button> 
-          {userNotFound && (
+    <div className='auth-form'>
+      <div className='auth-items'>
+        <input
+          className='auth-inputs'
+          type="text"
+          placeholder="Email"
+          value={inputEmail}
+          onChange={(e) => setInputEmail(e.target.value)}
+        />
+        <button className='auth-button' onClick={handleLogin}>Login</button>
+        {userNotFound && (
           <p> Sorry, we can't find this user.{' '}
           <NavLink className='auth-link' to='/LoginPage'>Registered?</NavLink>
-        </p>
-      )}
-        </div>
+          </p>
+        )}
+        {error && <p className='error-message'>{error}</p>}
       </div>
-
-     
-    </>
+    </div>
   );
 };
 
 export default AuthPage;
+
