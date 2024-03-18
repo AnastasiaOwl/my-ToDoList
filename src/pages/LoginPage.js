@@ -33,21 +33,25 @@ const LoginPage = () => {
     }
 
     try {
-      // Check if user already exists
       const users = await getAllUsers();
       const currentUser = users.find((user) => user.login === inputLogin && user.email === inputEmail);
-
       if (currentUser) {
+        console.log('User found in database:', currentUser);
         setUserExistsError(true);
       } else {
-        // Add the user to the database
         const response = await addUser({ login: inputLogin, email: inputEmail });
-        if (response.data && response.data.success) {
+        if (!response.message) {
+          console.log('User added successfully:', response);
+          localStorage.setItem('loggedInUser', inputEmail);
           handleLoginSuccess(inputEmail);
           setInputEmail('');
+        } else {
+          console.error('User addition failed:', response.message || 'Unknown error');
+          setError(response.message || 'Unknown error');
         }
-      }
-    } catch (error) {
+    } 
+  }
+  catch (error) {
       setError('Error logging in. Please try again.');
     }
 

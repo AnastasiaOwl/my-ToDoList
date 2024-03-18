@@ -5,14 +5,14 @@
       "description": "Spend 30 minutes daily practicing English through reading news articles, listening to podcasts, or watching English movies.",
       "creationDate": "14/03/2024",
       "id": "7b1b24d4-e3ee-4249-b72b-a6c89722c072",
-      "checked": false
+      "checked": true
     },
     {
       "title": "Stay fit and healthy:",
       "description": "Engage in at least 30 minutes of moderate-intensity exercise most days of the week. This could include brisk walking, cycling, swimming, or dancing.",
       "creationDate": "14/03/2024",
       "id": "0d01dfc6-1edc-4962-b7c7-9b03da52e953",
-      "checked": false
+      "checked": true
     },
     {
       "title": "Learn a new skill:",
@@ -48,9 +48,9 @@
       "email": "asdsdv@gmail.com"
     },
     {
-      "id": "511d",
-      "login": "ghghg",
-      "email": "qwqwe@gmail.com"
+      "id": "5f3d",
+      "login": "fgfgg",
+      "email": "djfjdf@gmail.com"
     }
   ]
 }
